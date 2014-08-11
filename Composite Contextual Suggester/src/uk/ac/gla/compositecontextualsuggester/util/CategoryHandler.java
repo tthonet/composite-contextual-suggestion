@@ -17,7 +17,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 /**
- * This class is used to parse the FourSquare category file. It creates a map
+ * This class is used to parse the Foursquare category file. It creates a map
  * matching each category id with a category, that preserve the tree structure
  * information because of their respective parent and children categories.
  * It contains as well a static black list of the categories that have no 
@@ -122,7 +122,7 @@ public class CategoryHandler {
 	 * conserve the tree structure information because of their respective
 	 * parent and children categories.
 	 * 
-	 * @param venueCategoryFilePath the path to the FourSquare category file
+	 * @param venueCategoryFilePath the path to the Foursquare category file
 	 */
 	public void parseCategories(String venueCategoryFilePath) {
 		try {

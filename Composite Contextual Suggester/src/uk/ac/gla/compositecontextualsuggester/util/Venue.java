@@ -11,7 +11,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 /**
- * A (FourSquare) venue as defined by the FourSquare venue. 
+ * A (Foursquare) venue as defined by the Foursquare venue. 
  * 
  * @author Dyaa Albakour
  * 
@@ -92,7 +92,7 @@ public class Venue {
 		this.icons = new ArrayList<String>();
 
 		if(jsonObj.has("url"))
-			setUrl(jsonObj.get("url").getAsString().replaceAll("â.*", ""));
+			setUrl(jsonObj.get("url").getAsString().replaceAll("ï¿½.*", ""));
 		if(jsonObj.has("canonicalUrl"))
 			setCanonicalUrl(jsonObj.get("canonicalUrl").getAsString());
 		if(jsonObj.has("location")) {

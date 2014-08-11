@@ -19,7 +19,7 @@ import uk.ac.gla.compositecontextualsuggester.util.Venue;
  * is designed to be used as described thereafter.
  * After the creation of the instance, the rated venues (i.e. the venues that 
  * have been rated by the users), the local venues (i.e. the venues that have
- * been pre-filtered based on a context), the (FourSquare) categories and the
+ * been pre-filtered based on a context), the (Foursquare) categories and the
  * user (defined from his profile) are set using their respective setter 
  * methods.
  * Then, some overall statistics are computed about the venues (e.g. the 
@@ -44,7 +44,7 @@ public class ContextualBundleBuilder {
 	private static double C_TCOH = 1.0;
 	private static double C_EAPP = 10.0;
 	
-	// maxLikeNb corresponds to the maximum number of "likes" a FourSquare
+	// maxLikeNb corresponds to the maximum number of "likes" a Foursquare
 	// venue has been given by users, for all the venues contained in
 	// localVenues.
 	private int maxLikeNb;
@@ -56,7 +56,7 @@ public class ContextualBundleBuilder {
 	private Map<String, Venue> ratedVenues;
 	// localVenues ccontains the venues located in a given context (i.e. city).
 	private Map<String, Venue> localVenues;
-	// categories contains the FourSquare categories.
+	// categories contains the Foursquare categories.
 	private Map<String, Category> categories;
 	
 	// candidateBundles contains the bundles generated after bobo.
@@ -108,7 +108,7 @@ public class ContextualBundleBuilder {
 	
 	/**
 	 * This method computes the overall popularity (opop) of a venue. It is
-	 * based on the number of "likes" the FourSquare venue has been given by
+	 * based on the number of "likes" the Foursquare venue has been given by
 	 * users.
 	 * 
 	 * @param venue a venue
@@ -201,7 +201,7 @@ public class ContextualBundleBuilder {
 	/**
 	 * This method computes the topical similarity (tsim) between two venues.
 	 * It is based on the computation of the distance between the closest (i.e.
-	 * most similar) category of each venue in the FourSquare category tree.
+	 * most similar) category of each venue in the Foursquare category tree.
 	 * 
 	 * @param venue1 a venue
 	 * @param venue2 another venue

@@ -11,7 +11,7 @@ import org.apache.commons.io.FileUtils;
  * This class is used to parse a file that contains a list of venue ids into a
  * collection of strings. This processing enables the filtering of the venues
  * for a given context, each context being associated with a file containing
- * the list of the FourSquare venue ids located in it.
+ * the list of the Foursquare venue ids located in it.
  * 
  * @author Thibaut Thonet
  *
@@ -21,7 +21,7 @@ public class LocatedIdHandler {
 	private Collection<String> locatedIds;
 	
 	/**
-	 * This method parses the file containing the FourSquare venue ids and
+	 * This method parses the file containing the Foursquare venue ids and
 	 * builds the collection of ids locatedIds.
 	 * 
 	 * @param locatedIdFilePath the path to the file containing the foursquare

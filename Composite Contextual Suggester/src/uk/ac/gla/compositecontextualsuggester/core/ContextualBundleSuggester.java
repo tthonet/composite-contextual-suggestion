@@ -39,7 +39,7 @@ import uk.ac.gla.compositecontextualsuggester.util.VenueHandler;
  * The program is designed to be executed with the following options:
  * -append                                        Append the result to the
  *                                                output file (optional).
- * -categories <foursquare-category-file-path>    Path to the FourSquare
+ * -categories <foursquare-category-file-path>    Path to the Foursquare
  *                                                category file.
  * -contextids <context-id1> ... <context-idn>    Context ID(s) to process,
  *                                                separated by spaces;
@@ -69,7 +69,7 @@ import uk.ac.gla.compositecontextualsuggester.util.VenueHandler;
  *                                                (optional).
  * -venpcity <venue-per-city-id-directory-path>   Path to the venue per city
  *                                                id directory.
- * -venues <foursquare-venue-directory-path>      Path to the FourSquare
+ * -venues <foursquare-venue-directory-path>      Path to the Foursquare
  *                                                venue directory.
  * -verbose                                       Print information about
  *                                                the execution (optional).
@@ -80,7 +80,7 @@ import uk.ac.gla.compositecontextualsuggester.util.VenueHandler;
  * similarRelevantVenueId1#...#similarRelevantVenueIdN", where userId is the ID
  * of the user, contextId is the ID of the context, bundleRank is the rank of
  * the bundle for this user-context pair, venueRank is the rank of the venue
- * in this bundle, venueId is the FourSquare ID of the venue, bundleScore is
+ * in this bundle, venueId is the Foursquare ID of the venue, bundleScore is
  * the score of the bundle (between 0 and 1), similarRelevantVenueId1, ..., 
  * similarRelevantVenueIdN are venues rated by the user that are topically
  * similar to the current venue and got a good rating by this user.
@@ -96,8 +96,8 @@ public class ContextualBundleSuggester {
 		// options contains the different options that can be added as
 		// arguments to the program.
 		Options options = new Options();
-		options.addOption(OptionBuilder.hasArg().isRequired().withArgName("foursquare-venue-directory-path").withDescription("Path to the FourSquare venue directory.").create("venues"));
-		options.addOption(OptionBuilder.hasArg().isRequired().withArgName("foursquare-category-file-path").withDescription("Path to the FourSquare category file.").create("categories"));
+		options.addOption(OptionBuilder.hasArg().isRequired().withArgName("foursquare-venue-directory-path").withDescription("Path to the Foursquare venue directory.").create("venues"));
+		options.addOption(OptionBuilder.hasArg().isRequired().withArgName("foursquare-category-file-path").withDescription("Path to the Foursquare category file.").create("categories"));
 		options.addOption(OptionBuilder.hasArg().isRequired().withArgName("CS-profile-file-path").withDescription("Path to the CS profile file.").create("profiles"));
 		options.addOption(OptionBuilder.hasArg().isRequired().withArgName("example_venue2foursquare-file-path").withDescription("Path to the file example_venue2foursquare.").create("extfs"));
         options.addOption(OptionBuilder.hasArg().isRequired().withArgName("CS-contexts-file-path").withDescription("Path to the CS context file.").create("contexts"));
@@ -132,7 +132,7 @@ public class ContextualBundleSuggester {
             // Beginning of the execution.
     		long beginTime = System.currentTimeMillis();
 			
-    		// Fetching the FourSquare categories.
+    		// Fetching the Foursquare categories.
 			CategoryHandler categoryHandler = new CategoryHandler();
 			categoryHandler.parseCategories(venueCategoryFilePath);
 			Map<String, Category> categories = categoryHandler.getCategories();

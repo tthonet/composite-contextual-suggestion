@@ -13,7 +13,7 @@ import org.apache.commons.io.FileUtils;
  * creates a map matching each profile id with a user. It uses the profile
  * file of TREC CS containing the ratings of a sample of venues and the file 
  * matching each venue id from the example file of TREC CS with its 
- * corresponding FourSquare id. The ratings are rescaled from -1 to 4 into
+ * corresponding Foursquare id. The ratings are rescaled from -1 to 4 into
  * -0.25 to 1.0).
  * 
  * @author Thibaut Thonet
@@ -26,7 +26,7 @@ public class UserHandler {
 	/**
 	 * This method parses the profile file of TREC CS containing the ratings of
 	 * a sample of venues. It uses as well the file matching each venue id from
-	 * the example file of TREC CS with its corresponding FourSquare id. It
+	 * the example file of TREC CS with its corresponding Foursquare id. It
 	 * builds the map users matching each profile id with a user that is 
 	 * created from the ratings in the profile file. The ratings are rescaled
 	 * from -1 to 4 into -0.25 to 1.0).
@@ -34,7 +34,7 @@ public class UserHandler {
 	 * @param profileFilePath the path to the profile file of TREC CS
 	 * @param exampleToFoursquareFilePath the path to the file matching each
 	 * venue id from the example file of TREC CS with its corresponding 
-	 * FourSquare id
+	 * Foursquare id
 	 */
 	public void parseUsers(String profileFilePath, String exampleToFoursquareFilePath) {
 		try {
@@ -42,7 +42,7 @@ public class UserHandler {
 			users = new HashMap<String, User>();
 			
 			// exampleToFoursquareIds maps venue ids from the example file to
-			// foursquare venue ids.
+			// Foursquare venue ids.
 			Map<String, String> exampleToFoursquareIds = new HashMap<String, String>();
 			
 			// Construction of exampleToFoursquareIds.
@@ -50,7 +50,7 @@ public class UserHandler {
 			List<String> lines = FileUtils.readLines(exampleToFoursquareFile);
 			for (String line : lines) {
 				// values[0] is the id in the example file and values[1] is the
-				// corresponding foursquare id.
+				// corresponding Foursquare id.
 				String[] values = line.split(",");
 				exampleToFoursquareIds.put(values[0], values[1]);
 			}
@@ -76,7 +76,7 @@ public class UserHandler {
 				
 				// Adding the rating of the venue for the appropriate user.
 				if (venueFoursquareId != null) {
-					// The foursquare venue corresponding to the example venue
+					// The Foursquare venue corresponding to the example venue
 					// has been found.
 					if (users.get(userId) == null) {
 						// First time encountering this user.

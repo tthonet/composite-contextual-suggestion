@@ -11,9 +11,9 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
 /**
- * This class is used to parse the FourSquare venues. It creates a map matching
- * each FourSquare venue id with a venue created from the class Venue. It uses
- * a list of FourSquare venue files in Json format that have been crawled
+ * This class is used to parse the Foursquare venues. It creates a map matching
+ * each Foursquare venue id with a venue created from the class Venue. It uses
+ * a list of Foursquare venue files in Json format that have been crawled
  * because their locations are in the list of TREC CS contexts.
  * 
  * @author Thibaut Thonet
@@ -24,15 +24,15 @@ public class VenueHandler {
 	private Map<String, Venue> venues; 
 	
 	/**
-	 * This method parses the venues located in the FourSquare venue directory.
-	 * It uses a list of FourSquare venue files in Json format. It builds the
-	 * map matching each FourSquare venue id with a venue created from the
+	 * This method parses the venues located in the Foursquare venue directory.
+	 * It uses a list of Foursquare venue files in Json format. It builds the
+	 * map matching each Foursquare venue id with a venue created from the
 	 * class Venue. It contains a parameter that enables the filtering of the
 	 * venues based on whether their categories belong to the black list
 	 * contained in CategoryHandler.
 	 * 
 	 * @param venueInfoDirectoryPath the path to the directory containing the
-	 * venues crawled from FourSquare
+	 * venues crawled from Foursquare
 	 * @param useCategoryFilter a boolean indicating whether the venues need to
 	 * be filtered based on their categories; the venues are filtered if and
 	 * only if this parameter is true
@@ -69,16 +69,16 @@ public class VenueHandler {
 	}
 	
 	/**
-	 * This method parses the venues located in the FourSquare venue directory.
-	 * It uses a list of FourSquare venue files in Json format. It builds the
-	 * map matching each FourSquare venue id with a venue created from the
+	 * This method parses the venues located in the Foursquare venue directory.
+	 * It uses a list of Foursquare venue files in Json format. It builds the
+	 * map matching each Foursquare venue id with a venue created from the
 	 * class Venue. It contains a parameter that enables the filtering of the
 	 * venues based on whether their categories belong to the black list
 	 * contained in CategoryHandler. Only the venues which ids are contained in
 	 * the parameter venueIds are parsed.
 	 * 
 	 * @param venueInfoDirectoryPath the path to the directory containing the
-	 * venues crawled from FourSquare
+	 * venues crawled from Foursquare
 	 * @param useCategoryFilter a boolean indicating whether the venues need to
 	 * be filtered based on their categories; the venues are filtered if and
 	 * only if this parameter is true

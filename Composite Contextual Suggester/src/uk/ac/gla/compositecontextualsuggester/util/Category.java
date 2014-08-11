@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 /**
- * This class is an implementation of a FourSquare category.
+ * This class is an implementation of a Foursquare category.
  * 
  * @author Thibaut Thonet
  *
@@ -17,12 +17,12 @@ public class Category {
 	private String pluralName;
 	private String shortName;
 	
-	// parent is the parent category of this category in the tree of all FourSquare categories.
+	// parent is the parent category of this category in the tree of all Foursquare categories.
 	private Category parent;
 	
 	private Collection<String> icon;
 	
-	// categories are the children categories of this category in the tree of all FourSquare categories.
+	// categories are the children categories of this category in the tree of all Foursquare categories.
 	private Collection<Category> categories;
 
 	public String getId() {
