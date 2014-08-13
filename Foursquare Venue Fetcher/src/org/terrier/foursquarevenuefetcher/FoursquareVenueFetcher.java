@@ -29,12 +29,35 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 /**
+ * This class is used to fetch the JSON files for the Foursquare venues which
+ * Foursquare IDs are contained in a given file. It contains a method main that
+ * generates the JSON files.
+ * 
+ * The program is designed to be executed with the following options:
+ * -clid <foursquare-client-id>                 Foursquare ID of the client.
+ * -clsecret <foursquare-secret-id>             Foursquare secret of the
+ *                                              client.
+ * -output <output-directory-path>              Path to the output
+ *                                              directory.
+ * -venidfile <foursquare-venue-id-file-path>   Path to the file containing
+ *                                              the ids of the Foursquare
+ *                                              venues.
+ * -verbose                                     Print information about the
+ *                                              execution (optional).
  * 
  * @author Thibaut Thonet
  *
  */
 public class FoursquareVenueFetcher {
 	
+	/**
+	 * This method parses the Foursquare venue IDs and creates a collection of
+	 * strings containing the IDs.
+	 * 
+	 * @param foursquareIdFilePath the path to file containing the Foursquare
+	 * venue IDs
+	 * @return the collection of Foursquare venue IDs
+	 */
 	public static Collection<String> getFoursquareVenueIds(String foursquareIdFilePath) throws IOException {
 		File foursquareIdFile = new File(foursquareIdFilePath);
 		
@@ -44,8 +67,9 @@ public class FoursquareVenueFetcher {
 	}
 	
 	/**
-	 * Adapted from Dyaa Albakour's and Romain Deveaud's code; gets the JSON
-	 * String containing all the information about a venue, given its ID.
+	 * This method is adapted from Dyaa Albakour's and Romain Deveaud's code.
+	 * It gets the JSON string containing all the information about a venue,
+	 * given its ID.
 	 * 
 	 * @param venueId the Foursquare ID of a venue
 	 * @param clientId the Foursquare ID of the client
@@ -56,19 +80,23 @@ public class FoursquareVenueFetcher {
 		HttpsURLConnection connection = null;
 		InputStream inputStream = null;
 		int responseCode;
+		
 		String url = "";
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
 		String vParam = format.format(calendar.getTime());
+		
 		try {
-			url = "https://api.foursquare.com/v2/venues/" + URLEncoder.encode(venueId,"UTF-8")
-					+"?client_id=" + clientId +
+			url = "https://api.foursquare.com/v2/venues/" + URLEncoder.encode(venueId,"UTF-8") +
+					"?client_id=" + clientId +
 					"&client_secret=" + clientSecret +
 					"&v=" + vParam;
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+		
 		final StringBuilder out = new StringBuilder();
+		
 		try {
 			connection = (HttpsURLConnection) (new URL(url)).openConnection();
 
@@ -82,6 +110,7 @@ public class FoursquareVenueFetcher {
 			// send the request, and read the HTTP response headers.
 			// The headers are stored until requested.
 			responseCode = connection.getResponseCode();
+			
 			if (responseCode != HttpsURLConnection.HTTP_OK) {
 				throw new Exception(Integer.toString(responseCode));
 			}
@@ -97,11 +126,12 @@ public class FoursquareVenueFetcher {
 					break;
 				out.append(buffer, 0, readSize);
 			}
+			
 			JsonElement parsedLine;
+			
 			try {
 				parsedLine = new JsonParser().parse(out.toString());
-			}
-			catch(JsonSyntaxException e) {
+			} catch (JsonSyntaxException e) {
 				System.out.println("Skipped malformed line in the Foursquare crawl.");
 				throw e;
 			}
