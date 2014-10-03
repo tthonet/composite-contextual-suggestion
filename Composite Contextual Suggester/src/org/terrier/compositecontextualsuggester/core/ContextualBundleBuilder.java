@@ -61,7 +61,7 @@ public class ContextualBundleBuilder {
 	
 	// candidateBundles contains the bundles generated after bobo.
 	private Collection<Bundle<Venue>> candidateBundles;
-	// candidateBundles contains the bundles chosen in chooseBundles, and that
+	// chosenBundles contains the bundles chosen in chooseBundles, and that
 	// are ordered from the bundle with the best score to the bundle with the
 	// worst score.
 	private List<Bundle<Venue>> chosenBundles;

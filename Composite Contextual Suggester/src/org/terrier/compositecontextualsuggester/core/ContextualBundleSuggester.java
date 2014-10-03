@@ -172,7 +172,7 @@ public class ContextualBundleSuggester {
 				locations = filteredLocations;
 			}
 			
-			// iterationCount counts the number of user-location pairs have
+			// iterationCount counts the number of user-location pairs that have
 			// been processed.
 			int iterationCount = 1;
 			
