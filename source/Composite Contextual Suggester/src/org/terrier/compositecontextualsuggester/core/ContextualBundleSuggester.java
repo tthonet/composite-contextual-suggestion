@@ -144,7 +144,7 @@ public class ContextualBundleSuggester {
 				// The profiles of the program specified a list of profiles
 				// using the option -profileids. Only these profiles will be
 				// processed.
-				String[] userIds = commandLine.getOptionValues("userids");
+				String[] userIds = commandLine.getOptionValues("profileids");
 				
 				// Users (i.e. profiles) are filtered.
 				Map<String, User> filteredUsers = new HashMap<String, User>();
@@ -194,9 +194,9 @@ public class ContextualBundleSuggester {
 				for (String userId : users.keySet()) {
 					User user = users.get(userId);
 
-					// Fetching the venues rated by te current user.
+					// Fetching the venues rated by the current user.
 					venueHandler.parseVenues(venueDirectoryPath, false, user.getVenueRatings().keySet()); // No filtering of venues.
-					Map<String, Venue> ratedVenues = venueHandler.getVenues();
+					Map<String, Venue> ratedVenues = venueHandler.getVenues();					
 
 					if (verbose) {
 						// Displaying the progress of the execution.

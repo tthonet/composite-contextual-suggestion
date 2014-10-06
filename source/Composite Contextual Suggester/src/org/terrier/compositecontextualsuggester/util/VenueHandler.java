@@ -52,7 +52,8 @@ public class VenueHandler {
 				try {
 					// Creation of a venue from the current venue info file.
 					Venue venue = new Venue(FileUtils.readFileToString(venueInfoFile));
-					String venueId = venue.getId();	
+					// The file name is the id of the venue.
+					String venueId = venueInfoFile.getName();	
 					
 					// Checking whether the venue is blacklisted (i.e. the
 					// venue category is not relevant).
@@ -88,8 +89,8 @@ public class VenueHandler {
 		// venues is reinitialized.
 		venues = new HashMap<String, Venue>();
 		
-		// The files contained at venueInfoDirectoryPath are fetched and
-		// matching the ids of venueIds are fetched.
+		// venueInfoFiles contains the files of the venues that match the ids
+		// of venueIds.
 		Collection<File> venueInfoFiles = new ArrayList<File>();
 		for (String venueId : venueIds) {
 			venueInfoFiles.add(new File(venueDirectoryPath + File.separator + venueId));
@@ -102,7 +103,8 @@ public class VenueHandler {
 				try {
 					// Creation of a venue from the current venue info file.
 					Venue venue = new Venue(FileUtils.readFileToString(venueInfoFile));
-					String venueId = venue.getId();	
+					// The file name is the id of the venue.
+					String venueId = venueInfoFile.getName();
 					
 					// Checking whether the venue is blacklisted (i.e. the
 					// venue category is not relevant).

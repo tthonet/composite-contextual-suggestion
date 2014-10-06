@@ -51,7 +51,7 @@ import com.google.gson.JsonSyntaxException;
 public class FoursquareVenueFetcher {
 	
 	/**
-	 * This method parses the Foursquare venue IDs and creates a collection of
+	 * This method parses the Foursquare venue ID file and creates a collection of
 	 * strings containing the IDs.
 	 * 
 	 * @param foursquareIdFilePath the path to file containing the Foursquare
@@ -175,9 +175,11 @@ public class FoursquareVenueFetcher {
             Collection<String> foursquareVenueIds = getFoursquareVenueIds(venueIdFilePath);
             
             for (String foursquareVenueId : foursquareVenueIds) {
-            	String jsonString = getFoursquareVenueById(foursquareVenueId, clientId, clientSecret);
             	File foursquareVenueFile = new File(outputDirectoryPath + File.separator + foursquareVenueId);
-            	FileUtils.write(foursquareVenueFile, jsonString);
+            	if (!foursquareVenueFile.exists()) {
+            		String jsonString = getFoursquareVenueById(foursquareVenueId, clientId, clientSecret);
+            		FileUtils.write(foursquareVenueFile, jsonString);
+            	}
             }
             
             // End of the execution.
