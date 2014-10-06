@@ -1,0 +1,7 @@
+# The generated JSON files of the Foursquare venues are ignored.
+
+venues/*
+
+# The run file is ignored.
+
+run-CS2014.txt
